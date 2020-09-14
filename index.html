@@ -45,8 +45,15 @@
                     <h1>Ristorante con Fusion</h1>
                     <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
                 </div>
-                <div class = "col-12 col-sm align-self-center">
-                    <img src="./img/logo.png" class="img-fluid mx-auto d-block">
+                <div class = "col-12 col-sm">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 align-self-center">
+                            <img src="./img/logo.png" class="img-fluid mx-auto d-block">
+                        </div>
+                        <div class="col-12 col-sm-6 align-self-center">
+                            <a class="btn btn-sm mx-auto d-block bg-warning" role="button" href="#reserveForm">Reserve Table</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,7 +76,7 @@
                             $4.99
                         </span>
                         </h2>
-                        <p>A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
+                        <p class="d-none d-sm-block">A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
                     </div>
                 </div>
             </div>
@@ -81,8 +88,17 @@
                 <h3>This Month's Promotions</h3>
             </div>
             <div class = "col col-sm col-md">
-                <h2>Weekend Grand Buffet</h2>
-                <p>Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
+                <div class="media">
+                <div class="media-body">
+                    <h2 class="mt-0">Weekend Grand Buffet
+                    <span class="badge badge-danger">
+                            NEW
+                    </span>
+                    </h2>
+                    <p class="d-none d-sm-block">Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
+                </div>
+                <img src="./img/buffet.png" class="d-flex ml-3 img-thumbnail align-self-center">
+                </div>
             </div>
         </div>
 
@@ -97,8 +113,64 @@
                 <div class="media-body">
                 <h2 class="mt-0">Alberto Somayya</h2>
                 <h4>Executive Chef</h4>
-                <p>Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. </p>
+                <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. </p>
                 </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-content align-items-center">
+            <div class="col-12 offset-sm-2 col-sm-8">
+                <div class="card">
+                    <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
+                    <div class="card-body">
+                        <form id="reserveForm">
+                        <div class="form-group row">
+                            <label for="noGuests" class="col-12 col-md-2 col-form-label">Number of Guests</label>
+                            <div id="noGuests" class="col-12 col-md-10">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio1" value="1Guests">
+                                    <label class="form-check-label" for="noGuestsRadio1">1</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio2" value="2Guests">
+                                    <label class="form-check-label" for="noGuestsRadio1">2</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio3" value="3Guests">
+                                    <label class="form-check-label" for="noGuestsRadio1">3</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio4" value="4Guests">
+                                    <label class="form-check-label" for="noGuestsRadio1">4</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio5" value="5Guests">
+                                    <label class="form-check-label" for="noGuestsRadio1">5</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio6" value="6Guests">
+                                    <label class="form-check-label" for="noGuestsRadio1">6</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="dateTime" class="col-12 col-md-2 col-form-label">Date and Time</label>
+                            <div class="col-12 col-md-3">
+                                <input type="text" class="form-control" id="date" name="date" placeholder="Date">
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <input type="text" class="form-control" id="time" name="time" placeholder="Time">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                        <div class="offset-md-2 col-md-10">
+                            <button type="submit" class="btn btn-primary">
+                                Reserve
+                            </button>
+                        </div>
+                    </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
