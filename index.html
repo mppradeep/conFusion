@@ -43,6 +43,8 @@
         </div>
     </nav> 
 
+
+
     <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog" role="content">
             <div class="modal-content">
@@ -93,6 +95,84 @@
         </div>
     </div>
 
+    <div id="reserveModal" class="modal fade" role="dialog">
+        <div class="modal-dialog" class="content">
+            <div class="modal-content">
+                 <div class="modal-header">
+                    <h4 class="modal-title">Reserve a Table</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="reserveForm">
+                        <div class="form-group row">
+                            <label for="noGuests" class="col-12 col-md-3 col-form-label">Number of Guests</label>
+                            <div id="noGuests" class="col-12 col-md-9">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio1" value="1Guests" checked>
+                                    <label class="form-check-label" for="noGuestsRadio1">1</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio2" value="2Guests">
+                                    <label class="form-check-label" for="noGuestsRadio1">2</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio3" value="3Guests">
+                                    <label class="form-check-label" for="noGuestsRadio1">3</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio4" value="4Guests">
+                                    <label class="form-check-label" for="noGuestsRadio1">4</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio5" value="5Guests">
+                                    <label class="form-check-label" for="noGuestsRadio1">5</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio6" value="6Guests">
+                                    <label class="form-check-label" for="noGuestsRadio1">6</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="section" class="col-12 col-md-3 col-form-label">Section</label>
+                            <div class="col-12 col-md-9" id="section">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-sm btn-success active">
+                                        <input type="radio" name="NSSection" id="nonSmoking" autocomplete="off" checked>Non-Smoking
+                                    </label>
+                                    <label class="btn btn-sm btn-danger">
+                                        <input type="radio" name="NSSection" id="smoking" autocomplete="off">Smoking
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="dateTime" class="col-12 col-md-3 col-form-label">Date and Time</label>
+                            <div class="col-12 col-md-4">
+                                <input type="text" class="form-control" id="date" name="date" placeholder="Date">
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <input type="text" class="form-control" id="time" name="time" placeholder="Time">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                        <div class="offset-md-3 col-md-10">
+                            <button type="submit" class="btn btn-sm btn-secondary">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Reserve
+                            </button>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class = "jumbotron">
         <div class = "container">
             <div class = "row row-header">
@@ -106,7 +186,7 @@
                             <img src="./img/logo.png" class="img-fluid mx-auto d-block">
                         </div>
                         <div class="col-12 col-sm-6 align-self-center">
-                            <a role="button" class="btn btn-sm mx-auto d-block bg-warning nav-link" data-toggle="tooltip" data-html="true" title="or Call Us at <br><strong>+919663407838</strong>" data-placement="bottom" href="#reserveForm">Reserve Table</a>
+                            <a role="button" class="btn btn-sm mx-auto d-block bg-warning nav-link" data-toggle="modal" data-target="#reserveModal">Reserve Table</a>
                         </div>
                     </div>
                 </div>
@@ -125,7 +205,7 @@
                             src="./img/uthappizza.png" alt="uthappizza">
                             <div class="carousel-caption d-none d-md-block">
                                 <h2>Uthappizza</h2>
-                                <p class="d-none d-sm-block">A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
+                                <p class="d-none d-sm-block">A unique combination of Indian Uthappam (pancake) and Italian pizjza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
@@ -154,6 +234,11 @@
                         <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
                             <span class="carousel-control-next-icon"></span>
                         </a>
+                        
+                        <button class="btn-danger btn-lg" id="carouselButton">
+                            <span class="fa fa-pause"></span> Start/Stop
+                        </button>
+                        
                     </div>
                 </div>
             </div>
@@ -217,62 +302,7 @@
                 </div>
             </div>
         </div>
-        <div class="row row-content align-items-center">
-            <div class="col-12 offset-sm-2 col-sm-8">
-                <div class="card">
-                    <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
-                    <div class="card-body">
-                        <form id="reserveForm">
-                        <div class="form-group row">
-                            <label for="noGuests" class="col-12 col-md-2 col-form-label">Number of Guests</label>
-                            <div id="noGuests" class="col-12 col-md-10">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio1" value="1Guests">
-                                    <label class="form-check-label" for="noGuestsRadio1">1</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio2" value="2Guests">
-                                    <label class="form-check-label" for="noGuestsRadio1">2</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio3" value="3Guests">
-                                    <label class="form-check-label" for="noGuestsRadio1">3</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio4" value="4Guests">
-                                    <label class="form-check-label" for="noGuestsRadio1">4</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio5" value="5Guests">
-                                    <label class="form-check-label" for="noGuestsRadio1">5</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="noGuestsRadio" id="noGuestsRadio6" value="6Guests">
-                                    <label class="form-check-label" for="noGuestsRadio1">6</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="dateTime" class="col-12 col-md-2 col-form-label">Date and Time</label>
-                            <div class="col-12 col-md-3">
-                                <input type="text" class="form-control" id="date" name="date" placeholder="Date">
-                            </div>
-                            <div class="col-12 col-md-3">
-                                <input type="text" class="form-control" id="time" name="time" placeholder="Time">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                        <div class="offset-md-2 col-md-10">
-                            <button type="submit" class="btn btn-primary">
-                                Reserve
-                            </button>
-                        </div>
-                    </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 
     <footer class = "footer">
@@ -321,12 +351,25 @@
 <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script >
+<script>
     $(document).ready(function() {
-        $('[data-toggle="tooltip"]').tooltip();
-    })
-</script>
 
+        // $('#mycarousel').carousel({ interval:600 });
+        $('#carouselButton').click(function() {
+            if ($('#carouselButton').children('span').hasClass('fa-pause')) {
+                $('#mycarousel').carousel('pause');
+                $('#carouselButton').children('span').removeClass('fa-pause');
+                $('#carouselButton').children('span').addClass('fa-play');
+            }
+            else if ($('#carouselButton').children('span').hasClass('fa-play')) {
+                $('#mycarousel').carousel('cycle');
+                $('#carouselButton').children('span').removeClass('fa-play');
+                $('#carouselButton').children('span').addClass('fa-pause');
+            }
+            
+        });
+    });
+</script>
 </body>
 
 </html>
