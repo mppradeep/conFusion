@@ -8,8 +8,16 @@ module.exports = function (grunt){
 		useminPrepare: 'grunt-usemin'
 	});
 
+	const sass = require('node-sass');
+
 	grunt.initConfig({
 		sass: {
+			options: {
+    implementation: sass,
+    outputStyle: 'compact',
+    sourceMap: true,
+    quiet: true // stop depreciation errors
+},
 			dist: {
 				files: {
 					'css/styles.css': 'css/styles.scss'
@@ -20,10 +28,6 @@ module.exports = function (grunt){
 			files: 'css/*.scss',
 			tasks: ['sass']
 		},
-        watch: {
-            files: 'css/*.scss',
-            tasks: ['sass']
-        },
         browserSync: {
             dev: {
                 bsFiles: {
@@ -76,75 +80,95 @@ module.exports = function (grunt){
         		}]
         	}
         },
+
         useminPrepare: {
-        	foo: {
-        		dest: 'dist',
-        		src: ['contactus.html', 'aboutus.html', 'index.html']
-        	},
-        	options: {
-        		flow: {
-        			steps: {
-        				css: ['cssmin'],
-        				js: ['uglify'],
-        			},
-        			post: {
-        				css: [{
-        					name: 'cssmin',
-        					createConfig: function(context, block){
-        						var generated = context.options.generated;
-        						generated.options = {
-        							keepSpecialComments: 0, rebase: false
-        						};
-        					}
-        				}]
-        			}
-        		}
-        	}
+            foo: {
+                dest: 'dist',
+                src: ['contactus.html','aboutus.html','index.html']
+            },
+            options: {
+                flow: {
+                    steps: {
+                        css: ['cssmin'],
+                        js:['uglify']
+                    },
+                    post: {
+                        css: [{
+                            name: 'cssmin',
+                            createConfig: function (context, block) {
+                            var generated = context.options.generated;
+                                generated.options = {
+                                    keepSpecialComments: 0, rebase: false
+                                };
+                            }       
+                        }]
+                    }
+                }
+            }
         },
+
+        // Concat
         concat: {
-        	options: {
-        		separator: ';'
-        	},
-        	dist: {}
+            options: {
+                separator: ';'
+            },
+  
+            // dist configuration is provided by useminPrepare
+            dist: {}
         },
+
+        // Uglify
         uglify: {
-        	dist: {}
+            // dist configuration is provided by useminPrepare
+            dist: {}
         },
+
         cssmin: {
-        	dist: {}
+            dist: {}
         },
+
+        // Filerev
         filerev: {
-        	options: {
-        		encoding: 'utf8',
-        		algorithm: 'md5',
-        		length: 20
-        	},
-        	release: {
-        		file: [{
-        			src: [
-        			'dist/js/*.js',
-        			'dist/css/*.css'
-        			]
-        		}]
-        	}
+            options: {
+                encoding: 'utf8',
+                algorithm: 'md5',
+                length: 20
+            },
+  
+            release: {
+            // filerev:release hashes(md5) all assets (images, js and css )
+            // in dist directory
+                files: [{
+                    src: [
+                        'dist/js/*.js',
+                        'dist/css/*.css',
+                    ]
+                }]
+            }
         },
+  
+        // Usemin
+        // Replaces all assets with their revved version in html and css files.
+        // options.assetDirs contains the directories for finding the assets
+        // according to their relative paths
         usemin: {
-        	html: ['dist/contactus.html', 'dist/aboutus.html', 'dist/index.html'],
-        	options: {
-        		assetDirs: ['dist', 'dist/css', 'dist/js']
-        	}
+            html: ['dist/contactus.html','dist/aboutus.html','dist/index.html'],
+            options: {
+                assetsDirs: ['dist', 'dist/css','dist/js']
+            }
         },
-        htmlmin: {
-        	dist: {
-        		options: {
-        			collapseWhitespace: true
-        		},
-        		files: {
-        			'dist/index.html': 'dist/index.html',
-        			'dist/contactus.html': 'dist/contactus.html',
-        			'dist/aboutus.html': 'dist/aboutus.html'
-        		}
-        	}
+
+        htmlmin: {                                         // Task
+            dist: {                                        // Target
+                options: {                                 // Target options
+                    collapseWhitespace: true
+                },
+                files: {                                   // Dictionary of files
+                    'dist/index.html': 'dist/index.html',  // 'destination': 'source'
+                    'dist/contactus.html': 'dist/contactus.html',
+                    'dist/aboutus.html': 'dist/aboutus.html',
+                }
+            }
         }
 
 
